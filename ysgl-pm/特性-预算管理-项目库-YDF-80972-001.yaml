@@ -1,0 +1,42 @@
+suite:
+  code: tx-ysgl-xmk-srbzwh
+  name: 收入标准维护
+  description: 收入标准维护，新增
+  tenant: 财政一体化
+cases:
+  - code: srbzwh
+    name: 收入标准维护
+    description: 收入标准维护，新增
+    user: 默认用户
+    default_org: "101001"
+    steps:
+      - action: open_menu
+        menu_path: 项目库>>系统设置>>收入标准维护
+    
+      # 1. 新增页面
+      - component: toolbar
+        operation: click
+        target:
+          label: 新增
+      - component: form
+        operation: fill
+        target:
+          fields:
+            收入标准编码: 998
+            收入标准名称: 测试
+            收入标准分类: 1 法定标准
+            计量单位: 元
+            标准值:  10
+            标准说明: 测试
+
+      - component: toolbar
+        operation: click
+        target:
+          label: 保存
+
+      - component: query
+        operation: search
+        target:
+          conditions:
+            - field: 收入标准名称
+              equals: 测试

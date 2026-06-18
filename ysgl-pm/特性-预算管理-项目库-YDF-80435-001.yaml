@@ -1,0 +1,44 @@
+suite:
+  code: zxxmfl-sqbm-sc
+  name: 执行项目分类-授权部分-删除
+  description: 执行项目分类-授权部分-删除
+  tenant: 财政一体化
+cases:
+  - code: zxxmfl-sqbm-sc
+    name: 执行项目分类-授权部分-删除
+    description: 执行项目分类-授权部分-删除
+    user: 默认用户
+    default_org: "101001"
+    steps:
+      - action: open_menu
+        menu_path: 项目库>>系统设置>>执行项目分类
+    
+      # 1. 新增，
+      - component: toolbar
+        operation: click
+        target:
+          label: 新增
+
+      - component: action
+        operation: click
+        target:
+          fieldid: xzbm_referbtn      
+
+      - component: popup_reference
+        operation: select
+        target:
+          title: 选择部门
+          value: 101001 秘书处01
+          confirm: true
+      - component: table_row_selection
+        operation: select
+        target:
+          row_numbers: 1
+
+      - component: popup_reference
+        operation: select
+        target:
+          title: 删除
+
+
+
